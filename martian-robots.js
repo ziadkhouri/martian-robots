@@ -57,15 +57,15 @@ Robot.prototype.turnRight = function ()
 //returns 'false' if the robot is lost
 Robot.prototype.moveForward = function ()
 {
-	var xVelocity = 0;
-	var yVelocity = 0;
+	var velocityX = 0;
+	var velocityY = 0;
 
 	if (this.orientation % 2 == 0)
-		yVelocity = (this.orientation > 1) ? -1 : 1;
+		velocityY = (this.orientation > 1) ? -1 : 1;
 	else
-		xVelocity = (this.orientation > 1) ? -1 : 1;
+		velocityX = (this.orientation > 1) ? -1 : 1;
 
-	if (this.grid.isUncharted (this.x + xVelocity, this.y + yVelocity))
+	if (this.grid.isUncharted (this.x + velocityX, this.y + velocityY))
 	{
 		if (!this.grid.isScented (this.x, this.y))
 		{	
@@ -75,8 +75,8 @@ Robot.prototype.moveForward = function ()
 	}
 	else
 	{
-		this.x += xVelocity;
-		this.y += yVelocity;
+		this.x += velocityX;
+		this.y += velocityY;
 	}
 
 	return true;
